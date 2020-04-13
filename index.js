@@ -7,5 +7,8 @@ export default function logger(appName) {
     };
     console.log(l.content.message);
     window.parent.postMessage(l, "*");
+    if(message instanceof Error){
+      console.trace();
+    }
   };
 }
