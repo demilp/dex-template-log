@@ -1,9 +1,8 @@
-export default function Logger(appName) {
-  this.appName = appName;
-  this.log = function (message) {
+export default function logger(appName) {
+  return function (message) {
     var l = {
       type: "log",
-      content: { tag: `[${this.appName}]`, message: message },
+      content: { tag: `[${appName}]`, message: message },
       origin: "DexTemplate",
     };
     console.log(l.content.message);
