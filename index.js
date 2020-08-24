@@ -5,10 +5,8 @@ export default function logger(appName) {
       content: { tag: `[${appName}]`, message: message },
       origin: "DexTemplate",
     };
-    console.log(l.content.message);
+    if (message instanceof Error) console.error(message.message || message);
+    else console.log(message);
     window.parent.postMessage(l, "*");
-    if(message instanceof Error){
-      console.trace();
-    }
   };
 }
